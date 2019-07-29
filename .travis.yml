@@ -1,0 +1,20 @@
+sudo: required
+language: python
+dist: trusty
+group: stable
+os: linux
+python: "3.7.4"
+cache:
+  pip: true
+  directories:
+    - .mypy_cache
+    - .pytest_cache
+
+services:
+addons:
+install:
+  - pip install --upgrade pip
+  - pip install -r test_requirements.txt
+
+script:
+  - sh integration_test.sh
